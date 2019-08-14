@@ -6,14 +6,14 @@ import NewRoomForm from './Components/NewRoomForm'
 import SendMessageForm from './Components/SendMessageForm'
 import RegisterForm from './Components/register'
 import './mycss.css'
-const chatkitTestTokenUrl="https://us1.pusherplatform.io/services/chatkit_token_provider/v1/fcdd68d5-e730-40df-9ee4-227422b37ac4/token";
+const chatkitTestTokenUrl="<token url>";
 const Chatkit = require("@pusher/chatkit-client");
 const ChatkitServer = require("@pusher/chatkit-server");
 //import Chatkit from "@pusher/chatkit-server
 console.log("inside App.js");
 const chatkitServer = new ChatkitServer.default({
-  instanceLocator:"v1:us1:fcdd68d5-e730-40df-9ee4-227422b37ac4" ,
-  key: "1896a1b9-2ac2-4a7f-af28-52772231a283:DZmjKHog4ILM5ZR9agiqLvyJmuZybiCSUDKBL+9g4R0="
+  instanceLocator:"<instanceLocator>" ,
+  key: "<key>"
 
 })
 console.log(chatkitServer);
@@ -60,7 +60,7 @@ registerNewUser = (userId,displayName) =>{
 }
 connectTheUser=()=>{
   const chatManager = new Chatkit.ChatManager({
-    instanceLocator:"v1:us1:fcdd68d5-e730-40df-9ee4-227422b37ac4",
+    instanceLocator:",instance locater",
     userId:this.state.userId,
     tokenProvider: new Chatkit.TokenProvider({
       url:chatkitTestTokenUrl
@@ -138,7 +138,7 @@ render(){
       subscribeToRoom={this.subscribeToRoom}
       rooms={[...this.state.joinableRooms,...this.state.joinedRooms]}
       roomId={this.state.roomId }
-      
+
       />
       <MessageList messages={this.state.messages} roomId={this.state.roomId }/>
       </div>
